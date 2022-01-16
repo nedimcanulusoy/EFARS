@@ -43,21 +43,24 @@
 
     {% endblock content %}
 
-    <footer class="bg-primary">
-        <div class="container d-flex mt-3">
-            <div class="row">
-                <div class="col-md-4">
-                    <a class="text-white" href="#" target="_blank">FOOTER-L-1 </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="text-white" href="#">FOOTER-L-2 </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="text-white" href="#">FOOTER-L-3</a>
-                </div>
-            </div>
-            <p class="ms-auto text-white">FOOTER-R</p>
+    <footer class="mt-auto pb-3 fixed-bottom">
+      <nav class="navbar navbar-expand">
+        <ul class="navbar-nav flex-fill">
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-3</a>
+          </li>
+        </ul>
+
+        <div class="navbar-nav flex-row nav-login-colors-link mx-2">
+          FOOTER-R
         </div>
+      </nav>
     </footer>
 
 </body>
