@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
 
     <title>EFARS</title>
@@ -10,24 +11,27 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
 
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand text-primary" href="#">Navbar</a>
 
         <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
           <div class="navbar-nav ms-auto">
-            <div class="btn-group">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                LANG
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">First</a></li>
-                <li><a class="dropdown-item" href="#">Second</a></li>
-              </ul>
-            </div>
+            <div class="d-grid d-md-block">
 
-            <a class="nav-link active" aria-current="page" href="#">GitHub</a>
+                <button type="button" class="btn btn-sm dropdown-toggle text-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                    LANG
+                </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">First</a></li>
+                        <li><a class="dropdown-item" href="#">Second</a></li>
+                    </ul>
+
+                <a class="btn btn-sm text-primary" href="#" target="_blank" role="button">
+                    GitHub
+                </a>
+            </div>
           </div>
         </div>
       </div>
