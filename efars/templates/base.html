@@ -7,7 +7,11 @@
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
     {#<link rel="shortcut icon" href="{{ url_for('static', filename='img/github.svg') }}">#}
 
-    <title>EFARS</title>
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+    </title>
 
 </head>
 <body>
@@ -17,6 +21,10 @@
     {% block content %}
 
     {% endblock content %}
+
+    {% block about %}
+
+    {% endblock about %}
 
     {% include 'base_components/footer.html' %}
 
