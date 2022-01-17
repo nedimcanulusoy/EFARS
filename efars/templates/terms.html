@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    EFARS - Terms & Conditions
+{% endblock title %}
+
+{% block terms %}
+    <main role="main" class="mx-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/logo.svg') }}/>
+                    <h1 class="text-center mb-5">Terms & Conditions Page</h1>
+
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock terms %}
