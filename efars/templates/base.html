@@ -12,56 +12,16 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-
-        <a class="navbar-brand text-primary" href="#">Navbar</a>
-
-        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
-            <div class="d-grid d-md-block">
-
-                <button type="button" class="btn btn-sm dropdown-toggle text-primary" data-bs-toggle="dropdown" aria-expanded="false">
-                    LANG
-                </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">First</a></li>
-                        <li><a class="dropdown-item" href="#">Second</a></li>
-                    </ul>
-
-                <a class="btn btn-sm text-primary" href="#" target="_blank" role="button">
-                    <img class="align-top" src={{ url_for('static', filename='img/github.svg') }}/>
-                    GitHub
-                </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+    {% include 'base_components/navbar.html' %}
 
     {% block content %}
 
     {% endblock content %}
 
-    <footer class="mt-auto pb-3 fixed-bottom">
-      <nav class="navbar navbar-expand">
-        <ul class="navbar-nav flex-fill">
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#" target="_blank">FOOTER-3</a>
-          </li>
-        </ul>
+    {% include 'base_components/footer.html' %}
 
-        <div class="navbar-nav flex-row nav-login-colors-link mx-2">
-          FOOTER-R
-        </div>
-      </nav>
-    </footer>
+
+
 
 </body>
 </html>
