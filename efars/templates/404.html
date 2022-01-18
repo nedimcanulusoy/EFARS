@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    EFARS - 404
+{% endblock title %}
+
+{% block error404 %}
+    <main role="main" class="mx-5">
+        <div class="container">
+            <div class="row">
+                <img class="img-center" src={{ url_for('static', filename='img/error404.svg') }}/>
+                {#REF=> https://storyset.com/illustration/404-error/bro#}
+            </div>
+        </div>
+    </main>
+{% endblock error404 %}
