@@ -12,3 +12,7 @@ def about():
 @app.route('/terms-and-conditions/')
 def terms_conditions():
     return render_template("terms.html")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
