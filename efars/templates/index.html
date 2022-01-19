@@ -7,7 +7,14 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-6 text-center"> Left Column </div>
+            <div class="col-md-6 text-center">
+                <div class="mx-auto my-auto" style="width:600px">
+                    <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/process.svg') }}/>
+                    {# REF=> https://storyset.com/illustration/data-extraction/rafiki #}
+                </div>
+                <h2>Lorem ipsum dolor sit amet</h2>
+            </div>
+
             <div class="col-md-6 text-center"> Right Column </div>
         </div>
     </div>
