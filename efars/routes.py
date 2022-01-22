@@ -1,7 +1,7 @@
 from efars import app
 from flask import Flask, render_template
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template("index.html")
 
@@ -9,7 +9,7 @@ def index():
 def about():
     return render_template("about.html")
 
-@app.route('/terms-and-conditions/')
+@app.route('/terms-and-conditions/', methods=['GET'])
 def terms_conditions():
     return render_template("terms.html")
 
