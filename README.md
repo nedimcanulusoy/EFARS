@@ -1,4 +1,4 @@
-![title](../EFARS/efars/static/img/logo.svg)
+<p align="center"><img width="800" src="../EFARS/efars/static/img/logo.svg" alt="EFARS Logo"></p>
 
 ---
 
