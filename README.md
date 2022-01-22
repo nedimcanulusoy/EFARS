@@ -1,4 +1,4 @@
-<p align="center"><img width="800" src="../EFARS/efars/static/img/logo.svg" alt="EFARS Logo"></p>
+<p align="center"><img width="800" src="./efars/static/img/logo.svg" alt="EFARS Logo"></p>
 
 ---
 
