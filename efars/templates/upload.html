@@ -1,0 +1,14 @@
+<h1>File Upload</h1>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+{#    {{ form.file.label }}#}
+    {{ form.file }}
+    {{ form.csrf_token }}
+    {{ form.submit }}
+
+    {% for error in form.file.errors %}
+        {{ error.upper() }}
+    {% endfor %}
+
+</form>
