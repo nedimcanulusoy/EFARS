@@ -3,8 +3,13 @@ from flask import Flask, render_template, redirect, url_for, request
 from efars.forms import FileForm
 from werkzeug.utils import secure_filename
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET'])
 def index():
+    form = FileForm()
+    return render_template('index.html', form=form)
+
+@app.route('/', methods=['POST'])
+def upload_file():
     form = FileForm()
 
     if form.validate_on_submit():
