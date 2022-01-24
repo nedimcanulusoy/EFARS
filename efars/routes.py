@@ -27,12 +27,6 @@ def terms_conditions():
 def page_not_found(e):
     return render_template('404.html'), 404
 
-# @app.route('/a', methods=['GET','POST'])
-# def upload_file():
-#     # if request.method == 'POST':
-#     #     uploaded_file = request.files['file']
-#     #     if uploaded_file.filename != '':
-#     #         print(f"{uploaded_file}")
-#     #         # uploaded_file.save(uploaded_file.filename)
-#     #     return redirect(url_for('index'))
-#     # return render_template("index.html")
+@app.errorhandler(413)
+def file_size_exceed(e):
+    return render_template('404.html'), 413
