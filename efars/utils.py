@@ -17,3 +17,10 @@ def filesize():
     size_request = request.files['file'].read()
     size = len(size_request)
     return size
+
+def allowed_filesize(filesize):
+
+    if int(filesize) <= config.Config.MAX_CONTENT_LENGTH:
+        return True
+    else:
+        return False
