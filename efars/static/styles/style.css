@@ -1,37 +1,15 @@
-.upload-container {
-  background-color: rgb(239, 239, 239);
-  border-radius: 6px;
-  padding: 10px;
+#drop-area {
+    border: 2.5px dashed #CCCCCCFF;
+    border-radius: 20px;
+    width: 480px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
-.border-container {
-  border: 2px dashed rgba(198, 198, 198, 0.65);
-/*   border-radius: 4px; */
-  padding: 20px;
+#drop-area.highlight {
+    border-color: #0D6EFD;
 }
 
-.border-container p {
-  color: #130f40;
-  font-weight: 600;
-  font-size: 1.1em;
-  letter-spacing: -1px;
-  margin-top: 30px;
-  margin-bottom: 0;
-  opacity: 0.65;
-}
-
-#file-browser {
-  text-decoration: none;
-  color: rgb(22,42,255);
-  border-bottom: 3px dotted rgba(22, 22, 255, 0.85);
-}
-
-#file-browser:hover {
-  color: rgb(0, 0, 255);
-  border-bottom: 3px dotted rgba(0, 0, 255, 0.85);
-}
-
-.icons {
-  color: #95afc0;
-  opacity: 0.55;
+#fileElem {
+    display: none;
 }
