@@ -1,4 +1,5 @@
 import config
+from flask import request
 
 def allowed_file(filename):
 
@@ -12,3 +13,7 @@ def allowed_file(filename):
     else:
         return False
 
+def filesize():
+    size_request = request.files['file'].read()
+    size = len(size_request)
+    return size
