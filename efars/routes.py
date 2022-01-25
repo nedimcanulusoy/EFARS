@@ -1,24 +1,24 @@
 from efars import app
-from flask import Flask, render_template, redirect, url_for, request
-from efars.forms import FileForm
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, redirect, url_for, request, make_response
 
 @app.route('/', methods=['GET'])
 def index():
-    form = FileForm()
-    return render_template('index.html', form=form)
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def upload_file():
-    form = FileForm()
 
-    if form.validate_on_submit():
-        filename = secure_filename(form.file.data.filename)
-        print(filename)
-        return redirect(url_for('index'))
-
-    return render_template('index.html', form=form)
-
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        print(uploaded_file.filename)
+        return {
+            'result':"OK"
+        },200
+        # return make_response(jsonify(result='OK'), 200) # Possible to return with make_response
+    else:
+        return {
+            'result':"ERROR"
+        },404
 
 @app.route('/about/', methods=['GET'])
 def about():
