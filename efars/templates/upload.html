@@ -1,18 +1,11 @@
 <h1>File Upload</h1>
-<div class="upload-container">
-    <div class="border-container">
-        <form method="POST" enctype="multipart/form-data">
-            {{ form.hidden_tag() }}
 
-            {{ form.file.label }}
-            {{ form.file }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-
-            {% for error in form.file.errors %}
-                {{ error.upper() }}
-            {% endfor %}
-
-        </form>
-    </div>
+<div id="drop-area">
+    <form class="my-form">
+        <p>Upload a file with the file dialog or by dragging and dropping a file onto the dashed region</p>
+        <input type="file" id="fileElem" multiple accept="*/*" onchange="handleFiles(this.files)">
+        <label class="btn btn-primary" for="fileElem">Select a file</label>
+    </form>
 </div>
+
+<script src="{{ url_for('static', filename='javascript/drag_and_drop.js') }}"></script>
