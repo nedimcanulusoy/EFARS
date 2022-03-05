@@ -216,7 +216,7 @@ class VisualizeData(object):
         plt.tight_layout()
         plt.show()
 
-        """feedback_rate (done in one cell)"""
+        """feedback_rate"""
 
         convert_datetime_helper()
 
@@ -230,7 +230,7 @@ class VisualizeData(object):
         plt.tight_layout()
         plt.show()
 
-        """participation_rate (done in one cell)"""
+        """participation_rate"""
 
         convert_datetime_helper()
 
