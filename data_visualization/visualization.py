@@ -247,8 +247,8 @@ class VisualizeData(object):
 
 if __name__ == "__main__":
     v = VisualizeData()
-    # v.average_table()
-    # v.scatter_graph()
-    # v.bar_graph()
-    # v.dma_bar_graph()
+    v.average_table()
+    v.scatter_graph()
+    v.bar_graph()
+    v.dma_bar_graph()
     v.heatmap_graph()
