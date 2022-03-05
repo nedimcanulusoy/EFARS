@@ -173,6 +173,10 @@ class VisualizeData(object):
         plt.show()
 
     def heatmap_graph(self):
+        def convert_datetime_helper():
+            self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+            return self.df['register_date']
+
         def date_helper():
             df_my = df_tmp.copy()
             df_my['month'] = [i.month for i in df_my['register_date']]
@@ -184,7 +188,7 @@ class VisualizeData(object):
 
         """course_completion_rate"""
 
-        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+        convert_datetime_helper()
 
         df_tmp = self.df[
             ['register_date', 'course_completion_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
@@ -199,7 +203,7 @@ class VisualizeData(object):
 
         """task_completion_rate"""
 
-        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+        convert_datetime_helper()
 
         df_tmp = self.df[
             ['register_date', 'task_completion_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
@@ -214,7 +218,7 @@ class VisualizeData(object):
 
         """feedback_rate (done in one cell)"""
 
-        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+        convert_datetime_helper()
 
         df_tmp = self.df[
             ['register_date', 'feedback_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
@@ -228,7 +232,7 @@ class VisualizeData(object):
 
         """participation_rate (done in one cell)"""
 
-        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+        convert_datetime_helper()
 
         df_tmp = self.df[
             ['register_date', 'participation_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
