@@ -141,9 +141,41 @@ class VisualizeData(object):
         plt.legend(['Feedback Average', 'Feedback Rate'])
         plt.show()
 
+    def dma_bar_graph(self):  # dma => daily, monthly, annually
+        # Pandas doesn't know that this register_date column is a date.
+        # We can convert it into a `datetime` column using the pd.to_datetime method
+        # dayfirst=True was used because of our date type which is day/month/year.
+        # As a result of this operation, we wrote the data processed on the register_date column.
+
+        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+
+        plt.title("Annually")
+        plt.ylabel("Number Scale")
+        df_annually = self.df.groupby(self.df['register_date'].dt.year).size().plot.bar(color='skyblue',
+                                                                                        edgecolor='black',
+                                                                                        linewidth=1)
+        plt.tight_layout()
+        plt.show()
+
+        plt.title("Monthly")
+        plt.ylabel("Number Scale")
+        df_monthly = self.df.groupby(self.df['register_date'].dt.month).size().plot.bar(color='skyblue',
+                                                                                        edgecolor='black',
+                                                                                        linewidth=1)
+        plt.tight_layout()
+        plt.show()
+
+        plt.title("Daily")
+        plt.ylabel("Number Scale")
+        df_daily = self.df.groupby(self.df['register_date'].dt.day).size().plot.bar(color='skyblue', edgecolor='black',
+                                                                                    linewidth=1)
+        plt.tight_layout()
+        plt.show()
+
 
 if __name__ == "__main__":
     v = VisualizeData()
     v.average_table()
     v.scatter_graph()
     v.bar_graph()
+    v.dma_bar_graph()
