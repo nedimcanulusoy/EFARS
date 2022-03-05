@@ -78,7 +78,72 @@ class VisualizeData(object):
         plt.grid()
         plt.show()
 
+    def bar_graph(self):
+        plt.figure(figsize=(16, 8))
+
+        plt.title('Participation Rate Bar')
+
+        plt.ylabel("Number Scale")
+        plt.xlabel("Participation Rates")
+
+        plt.axvline(x=self.df.participation_rate.median(),
+                    color='red',
+                    ls='--',
+                    lw=2)
+
+        plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
+        plt.legend(['Participation Average', 'Participation Rate'])
+        plt.show()
+
+        plt.figure(figsize=(16, 8))
+
+        plt.title('Course Completion Rate Bar')
+
+        plt.ylabel("Number Scale")
+        plt.xlabel("Course Completion Rates")
+
+        plt.axvline(x=self.df.course_completion_rate.median(),
+                    color='red',
+                    ls='--',
+                    lw=2)
+
+        plt.hist(self.df.course_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
+        plt.legend(['Course Completion Average', 'Course Completion Rate'])
+        plt.show()
+
+        plt.figure(figsize=(16, 8))
+
+        plt.title('Task Completion Rate Bar')
+
+        plt.ylabel("Number Scale")
+        plt.xlabel("Task Completion Rates")
+
+        plt.axvline(x=self.df.task_completion_rate.median(),
+                    color='red',
+                    ls='--',
+                    lw=2)
+        plt.hist(self.df.task_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5);
+        plt.legend(['Task Completion Average', 'Task Completion Rate']);
+        plt.show()
+
+        plt.figure(figsize=(16, 8))
+
+        plt.title('Feedback Rate Bar')
+
+        plt.ylabel("Number Scale")
+        plt.xlabel("Feedback Rates")
+
+        plt.axvline(x=self.df.feedback_rate.median(),
+                    color='red',
+                    ls='--',
+                    lw=2)
+        plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
+        plt.legend(['Feedback Average', 'Feedback Rate'])
+        plt.show()
+
+
 if __name__ == "__main__":
     v = VisualizeData()
     v.average_table()
     v.scatter_graph()
+    v.bar_graph()
