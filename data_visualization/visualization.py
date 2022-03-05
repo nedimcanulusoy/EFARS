@@ -172,6 +172,93 @@ class VisualizeData(object):
         plt.tight_layout()
         plt.show()
 
+    def heatmap_graph(self):
+        """course_completion_rate"""
+
+        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+
+        df_tmp = self.df[
+            ['register_date', 'course_completion_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
+        df_tmp['course_completion_rate'] = pd.to_numeric(df_tmp.course_completion_rate, errors='coerce')
+        df_tmp.dropna(subset=['course_completion_rate'],
+                      inplace=True)  # Removed the empty rows (NaN) and cleared the data
+
+        df_my = df_tmp.copy()
+        df_my['month'] = [i.month for i in df_my['register_date']]
+        df_my['year'] = [i.year for i in df_my['register_date']]
+
+        df_my = df_my.groupby(['month', 'year']).mean()
+        df_my = df_my.unstack(level=0)
+
+        fig, ax = plt.subplots(figsize=(14, 6))
+        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        plt.tight_layout()
+        plt.show()
+
+        """task_completion_rate"""
+
+        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+
+        df_tmp = self.df[
+            ['register_date', 'task_completion_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
+        df_tmp['task_completion_rate'] = pd.to_numeric(df_tmp.task_completion_rate, errors='coerce')
+        df_tmp.dropna(subset=['task_completion_rate'],
+                      inplace=True)  # Removed the empty rows (NaN) and cleared the data
+
+        df_my = df_tmp.copy()
+        df_my['month'] = [i.month for i in df_my['register_date']]
+        df_my['year'] = [i.year for i in df_my['register_date']]
+        df_my = df_my.groupby(['month', 'year']).mean()
+
+        df_my = df_my.unstack(level=0)
+
+        fig, ax = plt.subplots(figsize=(14, 6))
+        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        plt.tight_layout()
+        plt.show()
+
+        """feedback_rate (done in one cell)"""
+
+        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+
+        df_tmp = self.df[
+            ['register_date', 'feedback_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
+        df_tmp['feedback_rate'] = pd.to_numeric(df_tmp.feedback_rate, errors='coerce')
+        df_tmp.dropna(subset=['feedback_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
+
+        df_my = df_tmp.copy()
+        df_my['month'] = [i.month for i in df_my['register_date']]
+        df_my['year'] = [i.year for i in df_my['register_date']]
+        df_my = df_my.groupby(['month', 'year']).mean()
+
+        df_my = df_my.unstack(level=0)
+
+        fig, ax = plt.subplots(figsize=(14, 6))
+        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        plt.tight_layout()
+        plt.show()
+
+        """participation_rate (done in one cell)"""
+
+        self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
+
+        df_tmp = self.df[
+            ['register_date', 'participation_rate']].copy()  # Use .copy() to avoid a SettingWithCopyWarning error.
+        df_tmp['participation_rate'] = pd.to_numeric(df_tmp.participation_rate, errors='coerce')
+        df_tmp.dropna(subset=['participation_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
+
+        df_my = df_tmp.copy()
+        df_my['month'] = [i.month for i in df_my['register_date']]
+        df_my['year'] = [i.year for i in df_my['register_date']]
+        df_my = df_my.groupby(['month', 'year']).mean()
+
+        df_my = df_my.unstack(level=0)
+
+        fig, ax = plt.subplots(figsize=(14, 6))
+        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        plt.tight_layout()
+        plt.show()
+
 
 if __name__ == "__main__":
     v = VisualizeData()
@@ -179,3 +266,4 @@ if __name__ == "__main__":
     v.scatter_graph()
     v.bar_graph()
     v.dma_bar_graph()
+    v.heatmap_graph()
