@@ -173,6 +173,15 @@ class VisualizeData(object):
         plt.show()
 
     def heatmap_graph(self):
+        def date_helper():
+            df_my = df_tmp.copy()
+            df_my['month'] = [i.month for i in df_my['register_date']]
+            df_my['year'] = [i.year for i in df_my['register_date']]
+            df_my = df_my.groupby(['month', 'year']).mean()
+            df_my = df_my.unstack(level=0)
+
+            return df_my
+
         """course_completion_rate"""
 
         self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
@@ -183,15 +192,8 @@ class VisualizeData(object):
         df_tmp.dropna(subset=['course_completion_rate'],
                       inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        df_my = df_tmp.copy()
-        df_my['month'] = [i.month for i in df_my['register_date']]
-        df_my['year'] = [i.year for i in df_my['register_date']]
-
-        df_my = df_my.groupby(['month', 'year']).mean()
-        df_my = df_my.unstack(level=0)
-
         fig, ax = plt.subplots(figsize=(14, 6))
-        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
         plt.show()
 
@@ -205,15 +207,8 @@ class VisualizeData(object):
         df_tmp.dropna(subset=['task_completion_rate'],
                       inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        df_my = df_tmp.copy()
-        df_my['month'] = [i.month for i in df_my['register_date']]
-        df_my['year'] = [i.year for i in df_my['register_date']]
-        df_my = df_my.groupby(['month', 'year']).mean()
-
-        df_my = df_my.unstack(level=0)
-
         fig, ax = plt.subplots(figsize=(14, 6))
-        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
         plt.show()
 
@@ -226,15 +221,8 @@ class VisualizeData(object):
         df_tmp['feedback_rate'] = pd.to_numeric(df_tmp.feedback_rate, errors='coerce')
         df_tmp.dropna(subset=['feedback_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        df_my = df_tmp.copy()
-        df_my['month'] = [i.month for i in df_my['register_date']]
-        df_my['year'] = [i.year for i in df_my['register_date']]
-        df_my = df_my.groupby(['month', 'year']).mean()
-
-        df_my = df_my.unstack(level=0)
-
         fig, ax = plt.subplots(figsize=(14, 6))
-        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
         plt.show()
 
@@ -247,23 +235,16 @@ class VisualizeData(object):
         df_tmp['participation_rate'] = pd.to_numeric(df_tmp.participation_rate, errors='coerce')
         df_tmp.dropna(subset=['participation_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        df_my = df_tmp.copy()
-        df_my['month'] = [i.month for i in df_my['register_date']]
-        df_my['year'] = [i.year for i in df_my['register_date']]
-        df_my = df_my.groupby(['month', 'year']).mean()
-
-        df_my = df_my.unstack(level=0)
-
         fig, ax = plt.subplots(figsize=(14, 6))
-        sns.heatmap(df_my, cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
+        sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
         plt.show()
 
 
 if __name__ == "__main__":
     v = VisualizeData()
-    v.average_table()
-    v.scatter_graph()
-    v.bar_graph()
-    v.dma_bar_graph()
+    # v.average_table()
+    # v.scatter_graph()
+    # v.bar_graph()
+    # v.dma_bar_graph()
     v.heatmap_graph()
