@@ -1,4 +1,5 @@
-import yaml, os
+import os
+import yaml
 
 
 class Config(object):
@@ -16,7 +17,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI
 
     ALLOWED_EXTENSIONS = ["csv"]
-    MAX_CONTENT_LENGTH = 16 * 1000 * 1000 #File size limit is 16MB
+    MAX_CONTENT_LENGTH = 2 * 1000 * 1000  # File size limit is 16MB
 
 
 class DevelopmentConfig(Config):
