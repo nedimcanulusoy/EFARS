@@ -1,4 +1,5 @@
 import os
+
 import yaml
 
 
@@ -14,7 +15,6 @@ class Config(object):
     DB_NAME = config["db"]
     DB_USERNAME = config["user"]
     DB_PASSWORD = config["password"]
-    # SQLALCHEMY_DATABASE_URI
 
     ALLOWED_EXTENSIONS = ["csv"]
     MAX_CONTENT_LENGTH = 2 * 1000 * 1000  # File size limit is 16MB
@@ -26,7 +26,6 @@ class DevelopmentConfig(Config):
     DB_NAME = Config.config["development"]["db"]
     DB_USERNAME = Config.config["development"]["user"]
     DB_PASSWORD = Config.config["development"]["password"]
-    # SQLALCHEMY_DATABASE_URI
 
 
 class ProductConfig(Config):
@@ -35,7 +34,6 @@ class ProductConfig(Config):
     DB_NAME = Config.config["production"]["db"]
     DB_USERNAME = Config.config["production"]["user"]
     DB_PASSWORD = Config.config["production"]["password"]
-    # SQLALCHEMY_DATABASE_URI
 
 
 class TestingConfig(Config):
