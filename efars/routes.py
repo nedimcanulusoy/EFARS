@@ -1,8 +1,11 @@
-import config
+from io import StringIO
+
+from flask import render_template, request, flash, url_for
+from werkzeug.utils import secure_filename, redirect
+
 from efars import app
-from flask import Flask, render_template, redirect, url_for, request, make_response
-from werkzeug.utils import secure_filename
 from efars.utils import allowed_file, allowed_filesize, filesize
+from efars.visualization import VisualizeData
 
 
 @app.route('/', methods=['GET'])
@@ -10,31 +13,38 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def upload_file():
-    uploaded_file = request.files['file']
-    filename = secure_filename(uploaded_file.filename)
-    if filename != '':
-        print(f"FILE: {uploaded_file.filename}")
+    file = request.files['file']
 
-        if allowed_file(filename) and allowed_filesize(filesize()):
-            return {
-                       'result': "OK"
-                   }, 200
-        # return make_response(jsonify(result='OK'), 200) # Possible to return with make_response
-        elif allowed_file(filename) and not allowed_filesize(filesize()):
-            return {
-                       'result': "SIZE ERROR"
-                   }, 413
+    if file.filename == "":
+        flash('No file part')
+        return redirect(url_for('index'))
 
-        else:
-            return {
-                       'result': "FILE TYPE ERROR"
-                   }, 404
-    else:
-        return {
-                   'result': "ERROR"
-               }, 404
+    if file.filename != "" and allowed_file(file.filename):
+        filename_ = secure_filename(file.filename)
+        file_path = file.stream.read().decode('utf-8')
+        file = StringIO(file_path)
+
+        v = VisualizeData(file)
+        v.average_table()
+        v.scatter_graph()
+        v.bar_graph()
+        v.dma_bar_graph()
+        v.heatmap_graph()
+
+        flash('File uploaded')
+        return redirect(url_for('index'))
+
+    elif not allowed_file(file.filename):
+        flash('File type error')
+        return redirect(url_for('index'))
+
+    elif allowed_filesize(filesize()) is False:
+        flash('File size error')
+        return redirect(url_for('index'))
+
+    return render_template('upload.html')
 
 
 @app.route('/about/', methods=['GET'])
