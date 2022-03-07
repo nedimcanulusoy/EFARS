@@ -18,7 +18,7 @@ class Config(object):
 
     ALLOWED_EXTENSIONS = ["csv"]
     MAX_CONTENT_LENGTH = 2 * 1000 * 1000  # File size limit is 16MB
-
+    DEFAULT_PATH = config['default_folder_path']
 
 class DevelopmentConfig(Config):
     DEBUG = True
