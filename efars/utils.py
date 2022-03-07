@@ -1,10 +1,11 @@
-from flask import request
-
-import config
 import datetime
 import os
 import random
 import string
+
+from flask import request
+
+import config
 
 
 def allowed_file(filename):
@@ -45,3 +46,7 @@ def generate_filename():
     suffix = '_'.join([generate_id, datetime.datetime.now().strftime("%y%m%d_%H%M%S")])
 
     return '_'.join([basename, suffix])
+
+
+def create_plot_name():
+    return '/'.join([config.Config.DEFAULT_PATH, generate_filename()])
