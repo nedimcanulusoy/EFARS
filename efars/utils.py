@@ -1,8 +1,10 @@
-import os
-
 from flask import request
 
 import config
+import datetime
+import os
+import random
+import string
 
 
 def allowed_file(filename):
@@ -35,3 +37,11 @@ def folder_exists():
 
     if not is_exists:
         os.mkdir(default_path)
+
+
+def generate_filename():
+    basename = 'plot'
+    generate_id = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
+    suffix = '_'.join([generate_id, datetime.datetime.now().strftime("%y%m%d_%H%M%S")])
+
+    return '_'.join([basename, suffix])
