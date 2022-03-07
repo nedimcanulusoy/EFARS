@@ -2,10 +2,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+from efars.utils import folder_exists, create_plot_name
+
+
 class VisualizeData(object):
     def __init__(self, file_):
         self.file_ = file_
         self.df = pd.read_csv(file_, sep=',')
+        folder_exists()
 
     def average_table(self):
         course_completion_rate_avg = self.df.course_completion_rate.mean()
@@ -34,7 +38,7 @@ class VisualizeData(object):
         table.set_fontsize(16)
 
         fig.tight_layout()
-        plt.savefig('efars/static/plots/plot1.png')
+        plt.savefig(create_plot_name())
 
     def scatter_graph(self):
         plt.figure(figsize=(16, 8))
@@ -50,6 +54,8 @@ class VisualizeData(object):
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
 
+        plt.savefig(create_plot_name())
+
         plt.figure(figsize=(16, 8))
         plt.title('Scatter Graph - Task and Participation')
 
@@ -62,6 +68,8 @@ class VisualizeData(object):
                         sizes=(25, 250),
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
+
+        plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
         plt.title('Scatter Graph - Feedback and Participation')
@@ -76,7 +84,8 @@ class VisualizeData(object):
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
         plt.grid()
-        plt.savefig('efars/static/plots/plot2.png')
+
+        plt.savefig(create_plot_name())
 
     def bar_graph(self):
         plt.figure(figsize=(16, 8))
@@ -93,7 +102,8 @@ class VisualizeData(object):
 
         plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Participation Average', 'Participation Rate'])
-        plt.savefig('efars/static/plots/plot3.png')
+
+        plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
 
@@ -109,7 +119,8 @@ class VisualizeData(object):
 
         plt.hist(self.df.course_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Course Completion Average', 'Course Completion Rate'])
-        plt.savefig('efars/static/plots/plot4.png')
+
+        plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
 
@@ -124,7 +135,8 @@ class VisualizeData(object):
                     lw=2)
         plt.hist(self.df.task_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5);
         plt.legend(['Task Completion Average', 'Task Completion Rate']);
-        plt.savefig('efars/static/plots/plot5.png')
+
+        plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
 
@@ -139,7 +151,8 @@ class VisualizeData(object):
                     lw=2)
         plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Feedback Average', 'Feedback Rate'])
-        plt.savefig('efars/static/plots/plot6.png')
+
+        plt.savefig(create_plot_name())
 
     def dma_bar_graph(self):  # dma => daily, monthly, annually
         # Pandas doesn't know that this register_date column is a date.
@@ -155,7 +168,7 @@ class VisualizeData(object):
                                                                                         edgecolor='black',
                                                                                         linewidth=1)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot7.png')
+        plt.savefig(create_plot_name())
 
         plt.title("Monthly")
         plt.ylabel("Number Scale")
@@ -163,14 +176,14 @@ class VisualizeData(object):
                                                                                         edgecolor='black',
                                                                                         linewidth=1)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot8.png')
+        plt.savefig(create_plot_name())
 
         plt.title("Daily")
         plt.ylabel("Number Scale")
         df_daily = self.df.groupby(self.df['register_date'].dt.day).size().plot.bar(color='skyblue', edgecolor='black',
                                                                                     linewidth=1)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot9.png')
+        plt.savefig(create_plot_name())
 
     def heatmap_graph(self):
         def convert_datetime_helper():
@@ -199,7 +212,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(14, 6))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot10.png')
+
+        plt.savefig(create_plot_name())
 
         """task_completion_rate"""
 
@@ -214,7 +228,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(14, 6))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot11.png')
+
+        plt.savefig(create_plot_name())
 
         """feedback_rate"""
 
@@ -228,7 +243,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(14, 6))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot12.png')
+
+        plt.savefig(create_plot_name())
 
         """participation_rate"""
 
@@ -242,4 +258,5 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(14, 6))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-        plt.savefig('efars/static/plots/plot13.png')
+
+        plt.savefig(create_plot_name())
