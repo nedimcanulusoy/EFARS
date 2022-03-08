@@ -4,7 +4,7 @@ from flask import render_template, request, flash, url_for
 from werkzeug.utils import secure_filename, redirect
 
 from efars import app
-from efars.utils import allowed_file, allowed_filesize, filesize
+from efars.utils import allowed_file, allowed_filesize, filesize, pdf_merge
 from efars.visualization import VisualizeData
 
 
@@ -32,6 +32,8 @@ def upload_file():
         v.bar_graph()
         v.dma_bar_graph()
         v.heatmap_graph()
+
+        pdf_merge()
 
         flash('File uploaded')
         return redirect(url_for('index'))

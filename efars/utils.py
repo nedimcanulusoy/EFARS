@@ -1,9 +1,10 @@
-import datetime
-import os
-
+from PyPDF2 import PdfFileMerger
 from flask import request
 
 import config
+import datetime
+import glob
+import os
 
 
 def allowed_file(filename):
@@ -48,3 +49,16 @@ def generate_filename():
 
 def create_plot_name():
     return ''.join([config.Config.DEFAULT_PATH, generate_filename()])
+
+
+def pdf_merge():
+    pdf_list = [file for file in glob.glob(config.Config.DEFAULT_PATH + "*.pdf")]
+    pdf_list.sort()
+
+    merger = PdfFileMerger()
+
+    for pdf in pdf_list:
+        merger.append(pdf)
+
+    merger.write(config.Config.DEFAULT_PATH + "result.pdf")
+    merger.close()
