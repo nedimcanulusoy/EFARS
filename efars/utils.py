@@ -40,7 +40,7 @@ def folder_exists():
 
 def generate_filename():
     basename = 'plot'
-    timestamp = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+    timestamp = datetime.datetime.now().strftime("%y%m%d_%H%M%S_%f")
     ext = '.'.join([timestamp, 'pdf'])
 
     return '_'.join([basename, ext])
