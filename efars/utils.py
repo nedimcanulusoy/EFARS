@@ -1,7 +1,5 @@
 import datetime
 import os
-import random
-import string
 
 from flask import request
 
@@ -42,11 +40,11 @@ def folder_exists():
 
 def generate_filename():
     basename = 'plot'
-    generate_id = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
-    suffix = '_'.join([generate_id, datetime.datetime.now().strftime("%y%m%d_%H%M%S")])
+    timestamp = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+    ext = '.'.join([timestamp, 'pdf'])
 
-    return '_'.join([basename, suffix])
+    return '_'.join([basename, ext])
 
 
 def create_plot_name():
-    return '/'.join([config.Config.DEFAULT_PATH, generate_filename()])
+    return ''.join([config.Config.DEFAULT_PATH, generate_filename()])
