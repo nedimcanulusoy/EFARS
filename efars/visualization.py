@@ -162,6 +162,8 @@ class VisualizeData(object):
 
         self.df['register_date'] = pd.to_datetime(self.df.register_date, dayfirst=True)
 
+        plt.clf()
+
         plt.title("Annually")
         plt.ylabel("Number Scale")
 
