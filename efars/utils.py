@@ -49,7 +49,8 @@ def generate_filename():
 
 
 def create_plot_name():
-    return ''.join([config.Config.DEFAULT_PATH, generate_filename()])
+    newest = max(glob.glob(os.path.join(config.Config.PLOT_PATH, '*/')), key=os.path.getmtime)
+    return ''.join([newest, generate_filename()])
 
 
 def pdf_merge():
