@@ -62,7 +62,15 @@ def create_plot_name():
 
 
 def pdf_merge():
-    pdf_list = [file for file in glob.glob(config.Config.PLOT_PATH + "*.pdf")]
+    result_sub_path = ''.join([config.Config.RESULT_PATH, datetime.datetime.now().strftime("%y%m%d_%H%M%S_%f")])
+
+    if not os.path.exists(result_sub_path):
+        os.mkdir(result_sub_path)
+
+    newest_plot_folder = max(glob.glob(os.path.join(config.Config.PLOT_PATH, '*/')), key=os.path.getmtime)
+    newest_result_folder = max(glob.glob(os.path.join(config.Config.RESULT_PATH, '*/')), key=os.path.getmtime)
+
+    pdf_list = [file for file in glob.glob(newest_plot_folder + "*.pdf")]
     pdf_list.sort()
 
     merger = PdfFileMerger()
@@ -70,5 +78,5 @@ def pdf_merge():
     for pdf in pdf_list:
         merger.append(pdf)
 
-    merger.write(config.Config.RESULT_PATH + "result.pdf")
+    merger.write(newest_result_folder + "result.pdf")
     merger.close()
