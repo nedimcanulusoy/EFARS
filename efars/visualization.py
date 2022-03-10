@@ -133,8 +133,8 @@ class VisualizeData(object):
                     color='red',
                     ls='--',
                     lw=2)
-        plt.hist(self.df.task_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5);
-        plt.legend(['Task Completion Average', 'Task Completion Rate']);
+        plt.hist(self.df.task_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
+        plt.legend(['Task Completion Average', 'Task Completion Rate'])
 
         plt.savefig(create_plot_name())
 
@@ -164,11 +164,14 @@ class VisualizeData(object):
 
         plt.title("Annually")
         plt.ylabel("Number Scale")
+
         df_annually = self.df.groupby(self.df['register_date'].dt.year).size().plot.bar(color='skyblue',
                                                                                         edgecolor='black',
                                                                                         linewidth=1)
         plt.tight_layout()
         plt.savefig(create_plot_name())
+
+        plt.clf()
 
         plt.title("Monthly")
         plt.ylabel("Number Scale")
@@ -178,9 +181,12 @@ class VisualizeData(object):
         plt.tight_layout()
         plt.savefig(create_plot_name())
 
+        plt.clf()
+
         plt.title("Daily")
         plt.ylabel("Number Scale")
-        df_daily = self.df.groupby(self.df['register_date'].dt.day).size().plot.bar(color='skyblue', edgecolor='black',
+        df_daily = self.df.groupby(self.df['register_date'].dt.day).size().plot.bar(color='skyblue',
+                                                                                    edgecolor='black',
                                                                                     linewidth=1)
         plt.tight_layout()
         plt.savefig(create_plot_name())
