@@ -1,10 +1,11 @@
+import base64
 from io import StringIO
 
 from flask import render_template, request, flash, url_for
 from werkzeug.utils import secure_filename, redirect
 
 from efars import app
-from efars.utils import allowed_file, allowed_filesize, filesize, pdf_merge
+from efars.utils import allowed_file, allowed_filesize, filesize, pdf_merge, access_result
 from efars.visualization import VisualizeData
 
 
@@ -48,6 +49,15 @@ def upload_file():
 
     return render_template('upload.html')
 
+
+@app.route('/result/', methods=['GET'])
+def display_result():
+    with open(access_result() + 'result.pdf', "rb") as data_file:
+        data = data_file.read()
+    encoded_data = base64.b64encode(data).decode('utf-8')
+    return render_template("result.html", encoded_data=encoded_data)
+    # REF: https://stackoverflow.com/questions/46265079/flask-postgres-display-pdf-with-pdfjs
+    # REF: hhttps://www.codegrepper.com/code-examples/whatever/html5+embed+pdf+base64
 
 @app.route('/about/', methods=['GET'])
 def about():
