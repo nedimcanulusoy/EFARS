@@ -80,3 +80,7 @@ def pdf_merge():
 
     merger.write(newest_result_folder + "result.pdf")
     merger.close()
+
+
+def access_result():
+    return max(glob.glob(os.path.join(config.Config.RESULT_PATH, '*/')), key=os.path.getmtime)
