@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+    EFARS
+{% endblock title %}
+
+{% block content %}
+    <div class="h_iframe">
+        <iframe src="data:application/pdf;base64,{{ encoded_data }}"></iframe>
+    </div>
+{% endblock content %}
