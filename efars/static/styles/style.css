@@ -13,3 +13,13 @@
 #fileElem {
     display: none;
 }
+
+.h_iframe iframe {
+    width: 90%;
+    min-height: 85vh;
+}
+
+.h_iframe {
+    width: 90%;
+    min-height: 85vh;
+}
