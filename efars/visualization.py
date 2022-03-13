@@ -217,7 +217,7 @@ class VisualizeData(object):
         df_tmp.dropna(subset=['course_completion_rate'],
                       inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        fig, ax = plt.subplots(figsize=(14, 6))
+        fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
 
@@ -233,7 +233,7 @@ class VisualizeData(object):
         df_tmp.dropna(subset=['task_completion_rate'],
                       inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        fig, ax = plt.subplots(figsize=(14, 6))
+        fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
 
@@ -248,7 +248,7 @@ class VisualizeData(object):
         df_tmp['feedback_rate'] = pd.to_numeric(df_tmp.feedback_rate, errors='coerce')
         df_tmp.dropna(subset=['feedback_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        fig, ax = plt.subplots(figsize=(14, 6))
+        fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
 
@@ -263,7 +263,7 @@ class VisualizeData(object):
         df_tmp['participation_rate'] = pd.to_numeric(df_tmp.participation_rate, errors='coerce')
         df_tmp.dropna(subset=['participation_rate'], inplace=True)  # Removed the empty rows (NaN) and cleared the data
 
-        fig, ax = plt.subplots(figsize=(14, 6))
+        fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
 
