@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from matplotlib import rcParams
 
 from efars.utils import folder_exists, create_plot_name
 
@@ -17,6 +18,7 @@ class VisualizeData(object):
         feedback_rate_avg = self.df.feedback_rate.mean()
         participation_rate_avg = self.df.participation_rate.mean()
 
+        rcParams['figure.figsize'] = 16, 8
         fig, ax = plt.subplots(1, 1)
         data_to_display = [[course_completion_rate_avg], [task_completion_rate_avg],
                            [feedback_rate_avg], [participation_rate_avg]]
