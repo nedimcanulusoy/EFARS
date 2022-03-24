@@ -1,3 +1,5 @@
+import datetime
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -34,12 +36,15 @@ class VisualizeData(object):
                          rowColours=['skyblue'] * len(data_to_display_df),
                          colColours=['skyblue'] * len(data_to_display_df.columns),
                          rowLoc='center',
-                         loc='center')
+                         loc='center',
+                         cellLoc='center')
 
         table.scale(1, 2)
         table.set_fontsize(16)
 
         fig.tight_layout()
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
     def scatter_graph(self):
@@ -56,6 +61,10 @@ class VisualizeData(object):
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
+        plt.grid()
+
         plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
@@ -71,6 +80,10 @@ class VisualizeData(object):
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
+        plt.grid()
+
         plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
@@ -85,6 +98,9 @@ class VisualizeData(object):
                         sizes=(25, 250),
                         palette=sns.color_palette('Blues', as_cmap=True),
                         legend='auto')
+
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.grid()
 
         plt.savefig(create_plot_name())
@@ -105,6 +121,8 @@ class VisualizeData(object):
         plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Participation Average', 'Participation Rate'])
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
@@ -122,6 +140,8 @@ class VisualizeData(object):
         plt.hist(self.df.course_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Course Completion Average', 'Course Completion Rate'])
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
@@ -138,6 +158,8 @@ class VisualizeData(object):
         plt.hist(self.df.task_completion_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Task Completion Average', 'Task Completion Rate'])
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         plt.figure(figsize=(16, 8))
@@ -154,6 +176,8 @@ class VisualizeData(object):
         plt.hist(self.df.feedback_rate, bins=25, color='skyblue', edgecolor='black', linewidth=1.5)
         plt.legend(['Feedback Average', 'Feedback Rate'])
 
+        plt.figtext(0.75, 0.02, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
     def dma_bar_graph(self):  # dma => daily, monthly, annually
@@ -173,6 +197,8 @@ class VisualizeData(object):
                                                                                         edgecolor='black',
                                                                                         linewidth=1)
         plt.tight_layout()
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         plt.clf()
@@ -183,6 +209,8 @@ class VisualizeData(object):
                                                                                         edgecolor='black',
                                                                                         linewidth=1)
         plt.tight_layout()
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         plt.clf()
@@ -193,6 +221,8 @@ class VisualizeData(object):
                                                                                     edgecolor='black',
                                                                                     linewidth=1)
         plt.tight_layout()
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
     def heatmap_graph(self):
@@ -222,7 +252,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         """task_completion_rate"""
@@ -238,7 +269,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         """feedback_rate"""
@@ -253,7 +285,8 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
 
         """participation_rate"""
@@ -268,5 +301,6 @@ class VisualizeData(object):
         fig, ax = plt.subplots(figsize=(16, 8))
         sns.heatmap(date_helper(), cmap='Blues', vmin=0, vmax=100, linewidth=0.5, fmt=".2f", annot=True)
         plt.tight_layout()
-
+        plt.figtext(0.75, 0.01, "Created by EFARS" + " | " + datetime.datetime.now().strftime("%Y-%m-%d | %H:%M:%S"),
+                    fontsize=11, style="oblique", color="blue")
         plt.savefig(create_plot_name())
