@@ -57,7 +57,8 @@ def generate_filename():
 
 
 def create_plot_name():
-    newest = max(glob.glob(os.path.join(config.Config.PLOT_PATH, '*/')), key=os.path.getmtime)
+    newest = max(glob.glob(os.path.join(config.Config.DEFAULT_PATH + config.Config.PLOT_PATH, '*/')),
+                 key=os.path.getmtime)
     return ''.join([newest, generate_filename()])
 
 
