@@ -6,19 +6,12 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <div class="mx-auto my-auto" style="width:600px">
-                    <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/process.svg') }}/>
-                    {# REF=> https://storyset.com/illustration/data-extraction/rafiki #}
-                </div>
-                <h2>Lorem ipsum dolor sit amet</h2>
-            </div>
+        <div class="row fade-in" id="upload_view">
+            {% include 'views/upload.html' %}
+        </div>
 
-            <div class="col-md-6 text-center">
-                {% include 'upload.html' %}
-
-            </div>
+        <div class="row d-none fade-in" id="result_view">
+            {% include 'views/result.html' %}
         </div>
     </div>
 {% endblock content %}
