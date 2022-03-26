@@ -81,5 +81,6 @@ def pdf_merge():
 
     return filename
 
-def access_result():
-    return max(glob.glob(os.path.join(config.Config.RESULT_PATH, '*/')), key=os.path.getmtime)
+
+def get_absolute_file_path(filename):
+    return config.Config.DEFAULT_PATH + config.Config.RESULT_PATH + filename
