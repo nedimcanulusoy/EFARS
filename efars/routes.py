@@ -14,7 +14,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def upload_file():
     file = request.files['file']
 
@@ -34,10 +34,10 @@ def upload_file():
         v.dma_bar_graph()
         v.heatmap_graph()
 
-        pdf_merge()
+        pdf_filename = pdf_merge()
 
         flash('File uploaded')
-        return redirect(url_for('index'))
+        return jsonify({"file": pdf_filename})
 
     elif not allowed_file(file.filename):
         flash('File type error')
