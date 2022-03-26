@@ -1,29 +1,18 @@
-<footer class="mt-auto fixed-bottom">
+<footer class="mt-auto fixed-bottom fade-in" id="footer-comp">
     <div class="container">
-      <nav class="navbar navbar-expand">
-        <ul class="navbar-nav flex-fill">
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="{{ url_for('about') }}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="{{ url_for('terms_conditions') }}">Terms & Conditions</a>
-          </li>
-    {#      <li class="nav-item">#}
-    {#        <a class="nav-link text-primary" href="#">FOOTER-3</a>#}
-    {#      </li>#}
-        </ul>
+        <nav class="navbar navbar-expand">
+            <ul class="navbar-nav flex-fill">
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ url_for('about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ url_for('terms_conditions') }}">Terms & Conditions</a>
+                </li>
+            </ul>
 
-        <div class="navbar-nav flex-row nav-login-colors-link text-primary mx-2">
-          EFARS © 2022
-        </div>
-
-        <div class="navbar-nav flex-row nav-login-colors-link mx-2">
-            <a class="text-decoration-none text-primary" href="https://github.com/TheNavyInfantry/EFARS" target="_blank">
-                <img class="align-top" src={{ url_for('static', filename='img/github.svg') }}/>
-                GitHub
-            </a>
-        </div>
-      </nav>
+            <div class="navbar-nav flex-row nav-login-colors-link text-primary mx-2">
+                EFARS © 2022
+            </div>
+        </nav>
     </div>
 </footer>
-
