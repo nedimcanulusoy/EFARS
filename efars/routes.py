@@ -55,7 +55,7 @@ def display_result(filename):
     file_path = os.getcwd() + "/" + get_absolute_file_path(filename)
 
     if not os.path.exists(file_path):
-        return "ERROR"
+        return render_template('404.html'), 404
 
     return send_file(file_path)
 
