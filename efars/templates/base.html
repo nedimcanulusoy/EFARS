@@ -13,12 +13,27 @@
 </head>
 <body>
 
+<div class="container d-none fade-in" id="loading">
+    <div class="row">
+        {% include 'views/loading.html' %}
+    </div>
+</div>
+
+<div class="fade-in" id="page-content">
     {% include 'base_components/navbar.html' %}
 
     {% block content %} {% endblock content %}
 
     {% include 'base_components/footer.html' %}
+</div>
 
+<script src="{{ url_for('static', filename='js/download.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pdf.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core.js') }}"></script>
+<script src="{{ url_for('static', filename='js/drag_and_drop.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
