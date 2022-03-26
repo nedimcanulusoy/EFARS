@@ -1,24 +1,16 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
+<nav class="navbar navbar-expand-lg fade-in" id="navbar-comp">
+    <div class="container">
 
-    <a class="text-primary" href={{ url_for('index') }}>
-        <img width="80" src={{ url_for('static', filename='img/logo.svg') }}/>
-    </a>
+        <a class="text-primary" href={{ url_for('index') }}>
+            <img width="80" src={{ url_for('static', filename='img/logo.svg') }}/>
+        </a>
 
-    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-auto">
-        <div class="d-grid d-md-block">
-            <div class="dropdown">
-                <button type="button" class="btn btn-sm dropdown-toggle text-primary" data-bs-toggle="dropdown" aria-expanded="false">
-                    LANG
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">TR</a></li>
-                    <li><a class="dropdown-item" href="#">ENG</a></li>
-                </ul>
-            </div>
+        <div class="navbar-nav flex-row nav-login-colors-link">
+            <a class="text-decoration-none text-primary" href="https://github.com/TheNavyInfantry/EFARS"
+               target="_blank">
+                <img class="align-top" src={{ url_for('static', filename='img/github.svg') }}/>
+                GitHub
+            </a>
         </div>
-      </div>
     </div>
-  </div>
 </nav>
