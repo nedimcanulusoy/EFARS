@@ -66,18 +66,28 @@ function fileValidation() {
 // REF=> https://www.geeksforgeeks.org/file-type-validation-while-uploading-it-using-javascript/
 
 function uploadFile(file, i) {
-    var url = '/'
-    var formData = new FormData()
+    if (fileValidation()) {
 
-    formData.append('file', file)
+        const url = '/'
+        const formData = new FormData()
 
-    fetch(url, {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())
-        .then((r) => {console.log(r)
+        formData.append('file', file)
+        showSpinner();
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
         })
-        .catch((r) => { console.log(r)
-        })
+            .then(response => response.json())
+            .then((r) => {
+                console.log(r)
+
+                showResultView();
+                window.filePath = r.file
+                showPDF("/result/" + r.file)
+            })
+            .catch((r) => {
+                console.log(r)
+            })
+    }
 }
