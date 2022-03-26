@@ -1,0 +1,21 @@
+<div class="col-md-6 text-center">
+    <div class="mx-auto my-auto">  {#style="width:600px">#}
+        <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/process.svg') }}/>
+        {# REF=> https://storyset.com/illustration/data-extraction/rafiki #}
+    </div>
+    <h3>Lorem ipsum dolor sit amet</h3>
+</div>
+
+<div class="col-md-6 text-center">
+    <h1>File Upload</h1>
+
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Upload a file with the file dialog or by dragging and dropping a file onto the dashed region</p>
+            <input type="file" id="fileElem" multiple accept="*/*" onchange="handleFiles(this.files)">
+            <label class="btn btn-primary" for="fileElem">Select a file</label>
+        </form>
+    </div>
+
+    <div id="errorAlertPlaceholder"></div>
+</div>
