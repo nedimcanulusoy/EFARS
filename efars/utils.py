@@ -34,9 +34,9 @@ def allowed_filesize(filesize):
 
 def folder_exists():
     default_path = config.Config.DEFAULT_PATH
-    plot_path = config.Config.PLOT_PATH
-    plot_sub_path = ''.join([plot_path, datetime.datetime.now().strftime("%y%m%d_%H%M%S_%f")])
-    result_path = config.Config.RESULT_PATH
+    plot_path = default_path + config.Config.PLOT_PATH
+    plot_sub_path = plot_path + datetime.datetime.now().strftime("%y%m%d_%H%M%S_%f")
+    result_path = default_path + config.Config.RESULT_PATH
 
     is_dp_exists = os.path.exists(default_path)
     is_pp_exists = os.path.exists(plot_path)
