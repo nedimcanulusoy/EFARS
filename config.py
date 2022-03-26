@@ -13,7 +13,7 @@ class Config(object):
     SECRET_KEY = config["secret_key"]
 
     ALLOWED_EXTENSIONS = ["csv"]
-    MAX_CONTENT_LENGTH = 2 * 1000 * 1000  # File size limit is 16MB
+    MAX_CONTENT_LENGTH = 2 * 1000 * 1000
     DEFAULT_PATH = config['default_folder_path']
     PLOT_PATH = config['plot_folder_path']
     RESULT_PATH = config['result_folder_path']
