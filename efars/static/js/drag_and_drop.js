@@ -42,18 +42,28 @@ function handleDrop(e) {
 function handleFiles(files) {
     files = [...files]
     files.forEach(uploadFile)
-//    files.forEach(previewFile)
 }
 
-//function previewFile(file) {
-//    let reader = new FileReader()
-//    reader.readAsDataURL(file)
-//    reader.onloadend = function () {
-//        let img = document.createElement('img')
-//        img.src = reader.result
-//        document.getElementById('gallery').appendChild(img)
-//    }
-//}
+function fileValidation() {
+    var fileInput =
+        document.getElementById('fileElem');
+
+    var filePath = fileInput.value;
+
+    // Allowing file type
+    var allowedExtensions = /(\.csv)$/i;
+
+    if (allowedExtensions.exec(filePath)) {
+        return true;
+    }
+
+    showError(`"Invalid file type! | Allowed file type: ".csv"`)
+    fileInput.value = '';
+    return false;
+
+}
+
+// REF=> https://www.geeksforgeeks.org/file-type-validation-while-uploading-it-using-javascript/
 
 function uploadFile(file, i) {
     var url = '/'
