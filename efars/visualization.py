@@ -105,10 +105,10 @@ class VisualizeData(object):
 
         plt.savefig(create_plot_name())
 
-    def bar_graph(self):
+    def histogram_graph(self):
         plt.figure(figsize=(16, 8))
 
-        plt.title('Participation Rate Bar')
+        plt.title('Participation Rate Histogram')
 
         plt.ylabel("Number Scale")
         plt.xlabel("Participation Rates")
@@ -127,7 +127,7 @@ class VisualizeData(object):
 
         plt.figure(figsize=(16, 8))
 
-        plt.title('Course Completion Rate Bar')
+        plt.title('Course Completion Rate Histogram')
 
         plt.ylabel("Number Scale")
         plt.xlabel("Course Completion Rates")
@@ -146,7 +146,7 @@ class VisualizeData(object):
 
         plt.figure(figsize=(16, 8))
 
-        plt.title('Task Completion Rate Bar')
+        plt.title('Task Completion Rate Histogram')
 
         plt.ylabel("Number Scale")
         plt.xlabel("Task Completion Rates")
@@ -164,7 +164,7 @@ class VisualizeData(object):
 
         plt.figure(figsize=(16, 8))
 
-        plt.title('Feedback Rate Bar')
+        plt.title('Feedback Rate Histogram')
 
         plt.ylabel("Number Scale")
         plt.xlabel("Feedback Rates")
