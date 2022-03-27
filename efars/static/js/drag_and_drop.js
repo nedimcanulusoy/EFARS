@@ -44,21 +44,23 @@ function handleFiles(files) {
     files.forEach(uploadFile)
 }
 
-function fileValidation() {
-    var fileInput =
-        document.getElementById('fileElem');
-
-    var filePath = fileInput.value;
+function fileValidation(file) {
+    // Allowed file size in MiB
+    const fileSize = file.size / 1024 / 1024;
 
     // Allowing file type
     var allowedExtensions = /(\.csv)$/i;
 
-    if (allowedExtensions.exec(filePath)) {
+    if (allowedExtensions.exec(file.name)) {
+        if (fileSize > 8) {
+            showError(`"File size exceeds 8MiB!`)
+            return false;
+        }
         return true;
     }
 
     showError(`"Invalid file type! | Allowed file type: ".csv"`)
-    fileInput.value = '';
+
     return false;
 
 }
@@ -66,7 +68,7 @@ function fileValidation() {
 // REF=> https://www.geeksforgeeks.org/file-type-validation-while-uploading-it-using-javascript/
 
 function uploadFile(file, i) {
-    if (fileValidation()) {
+    if (fileValidation(file)) {
 
         const url = '/'
         const formData = new FormData()
