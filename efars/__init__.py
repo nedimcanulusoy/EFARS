@@ -1,5 +1,7 @@
 from flask import Flask
 
+from efars.utils import clear_conversions
+
 app = Flask(__name__)
 
 if app.config['ENV'] == "production":
@@ -8,4 +10,5 @@ if app.config['ENV'] == "production":
 else:
     app.config.from_object("config.DevelopmentConfig")
 
+clear_conversions()
 from efars import routes
