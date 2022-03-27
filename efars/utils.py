@@ -1,6 +1,8 @@
 import datetime
 import glob
 import os
+import shutil
+from threading import Timer
 
 from PyPDF2 import PdfFileMerger
 from flask import request
@@ -18,6 +20,7 @@ def allowed_file(filename):
         return True
     else:
         return False
+
 
 def filesize():
     size_request = request.files['file'].read()
@@ -47,6 +50,7 @@ def folder_exists():
 
     if not os.path.exists(plot_sub_path):
         os.mkdir(plot_sub_path)
+
 
 def generate_filename():
     basename = 'plot'
@@ -84,3 +88,10 @@ def pdf_merge():
 
 def get_absolute_file_path(filename):
     return config.Config.DEFAULT_PATH + config.Config.RESULT_PATH + filename
+
+
+def clear_conversions():
+    path = config.Config.DEFAULT_PATH
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    Timer(86400, clear_conversions).start()  # Executed every 24 hours (in seconds)
