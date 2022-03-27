@@ -30,7 +30,7 @@ def upload_file():
         v = VisualizeData(file)
         v.average_table()
         v.scatter_graph()
-        v.bar_graph()
+        v.histogram_graph()
         v.dma_bar_graph()
         v.heatmap_graph()
 
