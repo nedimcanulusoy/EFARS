@@ -5,27 +5,28 @@
 {% endblock title %}
 
 {% block content %}
-    <main role="main" class="mx-5">
+    <div class="container-fluid my-5 py-4 text-white bg-primary">
+        <h1 class="text-center">Terms & Conditions</h1>
+    </div>
+
+    <main role="main">
         <div class="container">
-            <div class="row">
-                <div class="col-auto">
-                    <div class="mx-auto my-auto" style="width:600px">
-                        <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/logo.svg') }}/>
-                    </div>
 
-                    <h1 class="text-center mt-2 mb-5">Terms & Conditions Page</h1>
 
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
+            <img class="img-fluid mx-auto d-block" width="500px" src={{ url_for('static', filename='img/logo.svg') }}/>
 
-            </div>
+            <hr>
+
+            <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+
         </div>
     </main>
 {% endblock content %}
