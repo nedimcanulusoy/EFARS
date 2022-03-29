@@ -52,9 +52,9 @@ function showError(message) {
     const alertPlaceholder = document.getElementById('errorAlertPlaceholder')
     const wrapper = document.createElement('div')
 
-    wrapper.innerHTML = `<div class="alert alert-danger alert-dismissible" role="alert">
+    wrapper.innerHTML = `<div class="alert alert-danger alert-dismissible fade-in" role="alert">
                             ${message}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button id="alert-close-btn" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>`
 
     alertPlaceholder.append(wrapper)
