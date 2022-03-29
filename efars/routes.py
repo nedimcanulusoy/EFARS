@@ -1,11 +1,11 @@
 import os
 from io import StringIO
 
-from flask import render_template, request, flash, url_for, send_file, jsonify
-from werkzeug.utils import secure_filename, redirect
+from flask import render_template, request, send_file, jsonify
+from werkzeug.utils import secure_filename
 
 from efars import app
-from efars.utils import allowed_file, allowed_filesize, filesize, pdf_merge, get_absolute_file_path
+from efars.utils import allowed_file, pdf_merge, get_absolute_file_path
 from efars.visualization import VisualizeData
 
 
@@ -17,10 +17,6 @@ def index():
 @app.route('/', methods=['POST'])
 def upload_file():
     file = request.files['file']
-
-    if file.filename == "":
-        flash('No file part')
-        return redirect(url_for('index'))
 
     if file.filename != "" and allowed_file(file.filename):
         filename_ = secure_filename(file.filename)
@@ -36,16 +32,7 @@ def upload_file():
 
         pdf_filename = pdf_merge()
 
-        flash('File uploaded')
         return jsonify({"file": pdf_filename})
-
-    elif not allowed_file(file.filename):
-        flash('File type error')
-        return redirect(url_for('index'))
-
-    elif allowed_filesize(filesize()) is False:
-        flash('File size error')
-        return redirect(url_for('index'))
 
     return render_template('upload.html')
 
@@ -74,7 +61,3 @@ def terms_conditions():
 def page_not_found(e):
     return render_template('404.html'), 404
 
-
-@app.errorhandler(413)
-def file_size_exceed(e):
-    return render_template('404.html'), 413
