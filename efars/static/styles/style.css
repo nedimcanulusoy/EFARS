@@ -1,8 +1,13 @@
+h1, h2, h3 {
+    font-family: 'Syne', sans-serif;
+}
+
 #drop-area {
     border: 2.5px dashed #CCCCCCFF;
     border-radius: 20px;
-    width: 480px;
-    margin: 50px auto;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
     padding: 20px;
 }
 
@@ -25,6 +30,26 @@
 #page-no:hover {
     background: #ffffff;
     color: #0D6EFD;
+}
+
+#btn-download {
+    background: #26a6c4;
+    color: #ffffff;
+}
+
+#btn-download:hover {
+    background: #2292a4;
+    color: #ffffff;
+}
+
+#alert-close-btn {
+    padding-top: 10px;
+}
+
+.alert {
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .fade-in {
