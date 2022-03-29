@@ -1,21 +1,27 @@
-<div class="col-md-6 text-center">
-    <div class="mx-auto my-auto">  {#style="width:600px">#}
-        <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/process.svg') }}/>
-        {# REF=> https://storyset.com/illustration/data-extraction/rafiki #}
-    </div>
-    <h3>Lorem ipsum dolor sit amet</h3>
+<div class="col-lg-6 mt-4 pt-5 text-center">
+    <img class="img-fluid mx-auto d-block" src={{ url_for('static', filename='img/process.svg') }}/>
+    {# REF=> https://storyset.com/illustration/data-extraction/rafiki #}
+
 </div>
 
-<div class="col-md-6 text-center">
-    <h1>File Upload</h1>
+<div class="col-lg-6 mt-4 pt-5 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="pt-4">Analyse, Visualize, Improve.</h1>
 
-    <div id="drop-area">
+    <p class="lead text-left pt-2 mb-3"><strong>EFARS</strong> is an Education File Analysis and Reporting system that
+        will help you to both
+        analyze and visualize your educational data to improve your education quality.</p>
+
+    <h2>File Upload</h2>
+
+    <div class="text-center" id="errorAlertPlaceholder"></div>
+
+    <div class="" id="drop-area">
         <form class="my-form">
-            <p>Upload a file with the file dialog or by dragging and dropping a file onto the dashed region</p>
+            <p class="text-center">Upload a <strong>".csv"</strong> file with the file dialog or by dragging and
+                dropping a file onto the dashed region</p>
             <input type="file" id="fileElem" multiple accept="*/*" onchange="handleFiles(this.files)">
-            <label class="btn btn-primary" for="fileElem">Select a file</label>
+            <label class="btn btn-primary w-100" for="fileElem">Select a file</label>
         </form>
     </div>
-
-    <div id="errorAlertPlaceholder"></div>
+    <small class="text-muted mb-1">Don't worry, we don't keep any of your data.</small>
 </div>
