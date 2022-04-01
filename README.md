@@ -5,7 +5,6 @@
 <h2 align='center'>EFARS</h2>
 <p align='center'>EFARS stands for Educational File Analysis and Reporting System</p>
 
-
 ---
 <p align='center'>
 
@@ -28,3 +27,56 @@ Merge requests are welcome. For major changes, please open an issue first to dis
 
 ### License
 This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details
+
+### Project Structure
+```
+EFARS
+│
+├─ app.py
+├─ config.py
+├─ efars
+│  ├─ __init__.py
+│  ├─ routes.py
+│  ├─ static
+│  │  ├─ img
+│  │  │  ├─ error404.svg
+│  │  │  ├─ error404_non_animated.svg
+│  │  │  ├─ github.svg
+│  │  │  ├─ icon.svg
+│  │  │  ├─ logo.svg
+│  │  │  └─ process.svg
+│  │  ├─ js
+│  │  │  ├─ 404_error_animation.js
+│  │  │  ├─ core.js
+│  │  │  ├─ download.js
+│  │  │  ├─ drag_and_drop.js
+│  │  │  └─ pdf.js
+│  │  └─ styles
+│  │     └─ style.css
+│  ├─ templates
+│  │  ├─ 404.html
+│  │  ├─ about.html
+│  │  ├─ base.html
+│  │  ├─ base_components
+│  │  │  ├─ footer.html
+│  │  │  ├─ header.html
+│  │  │  └─ navbar.html
+│  │  ├─ index.html
+│  │  ├─ terms.html
+│  │  └─ views
+│  │     ├─ loading.html
+│  │     ├─ result.html
+│  │     └─ upload.html
+│  ├─ utils.py
+│  └─ visualization.py
+├─ requirements.txt
+├─ mock_data.csv
+├─ Dockerfile
+├─ Procfile
+├─ README.md
+├─ LICENSE
+└─ .gitignore
+
+
+
+```
