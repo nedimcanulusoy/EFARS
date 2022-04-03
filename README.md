@@ -8,7 +8,7 @@
 ---
 <p align='center'>
 
-  <img src="https://img.shields.io/badge/Python-3.9-blue.svg">
+  <img src="https://img.shields.io/badge/Python-3.10.2-blue.svg">
   <a href="https://www.repostatus.org/#wip" target="_blank"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a>
   <a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank"><img src="https://img.shields.io/github/license/TheNavyInfantry/EFARS" alt="License: GPL-3.0"></a>
 
