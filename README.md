@@ -22,12 +22,39 @@
 ### Project Status
 EFARS is still under heavy development. There can be breaking changes, but I am trying to keep them as minimum as possible.
 
-### Contributing
-Merge requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+### Installation
 
-### License
-This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details
+**1.** Clone this repository
 
+```
+https://github.com/TheNavyInfantry/EFARS.git
+```
+
+---
+**2.** Change directory to the cloned repository
+
+```
+cd EFARS
+```
+
+---
+
+**3.** Run with docker-compose.yml
+
+```
+docker-compose up
+```
+
+After the first run, EFARS will be available at http://localhost:5000/
+
+---
+
+#### Warning:
+This project is currently running in a .csv file containing a specific format. If you would like to test it, you can use this 
+[mock data](mock_data.csv) file. It will be made more dynamic in future updates.
+
+
+---
 ### Project Structure
 ```
 EFARS
@@ -72,11 +99,15 @@ EFARS
 ├─ requirements.txt
 ├─ mock_data.csv
 ├─ Dockerfile
+├─ docker-compose.yml
 ├─ Procfile
 ├─ README.md
 ├─ LICENSE
 └─ .gitignore
-
-
-
 ```
+
+### Contributing
+Merge requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+### License
+This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details
