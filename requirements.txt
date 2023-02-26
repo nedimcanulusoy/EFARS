@@ -21,4 +21,4 @@ PyYAML==6.0
 scipy==1.8.0
 seaborn==0.11.2
 six==1.16.0
-Werkzeug==2.0.3
+Werkzeug==2.2.3
